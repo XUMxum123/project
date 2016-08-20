@@ -11,12 +11,30 @@ interface postMapperInterface {
 	 * @throws \InvalidArgumentException
 	 */
 	public function find($id);
-	
+
 	/**
-	 * @return array|PostInterface[]
+	 * @return array|postInterface[]
 	*/
 	public function findAll();
-	
+
+	/**
+	 * @param postInterface $postObject
+	 *
+	 * @param postInterface $postObject
+	 * @return postInterface
+	 * @throws \Exception
+	 */
+	public function save(postInterface $postObject);
+
+	/**
+	 * @param postInterface $postObject
+	 *
+	 * @return bool
+	 * @throws \Exception
+	 */
+	public function delete(postInterface $postObject);
+
+
 }
 
 ?>

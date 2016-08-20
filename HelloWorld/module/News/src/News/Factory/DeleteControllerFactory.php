@@ -2,22 +2,26 @@
 
 namespace News\Factory;
 
-use News\Controller\WriteController;
+use News\Controller\DeleteController;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class WriteControllerFactory implements FactoryInterface {
+class DeleteControllerFactory implements FactoryInterface {
+	/**
+	 * Create service
+	 *
+	 * @param ServiceLocatorInterface $serviceLocator
+	 *
+	 * @return mixed
+	 */
 	public function createService(ServiceLocatorInterface $serviceLocator)
 	{
 		$realServiceLocator = $serviceLocator->getServiceLocator();
 		$postService        = $realServiceLocator->get('News\Service\postServiceInterface');
-		$postInsertForm     = $realServiceLocator->get('FormElementManager')->get('News\Form\postForm');
-	
-		return new WriteController(
-				$postService,
-				$postInsertForm
-		);
+
+		return new DeleteController($postService);
 	}
+
 }
 
 ?>
