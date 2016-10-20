@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import android.app.Activity;
+import android.content.Intent;
 //import android.content.ContentValues;
 //import android.content.Context;
 import android.database.Cursor;
@@ -17,10 +18,13 @@ import android.database.CursorWrapper;
 //import android.database.sqlite.SQLiteDatabase;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 public class SqliteActivity extends Activity {
+	public final static String TAG = "SqliteActivity";
 	private DBManager mgr;  
     private ListView listView; 
 	@Override
@@ -30,6 +34,16 @@ public class SqliteActivity extends Activity {
 		listView = (ListView) findViewById(R.id.listView);  
         //初始化DBManager  
         mgr = new DBManager(this);
+        Button provide = (Button)findViewById(R.id.proivide_before_click_add);
+        provide.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent i = new Intent("com.example.action.personresolver"); 
+				startActivity(i);
+			}
+		});
 /*		SQLiteDatabase db = openOrCreateDatabase("test.db", Context.MODE_PRIVATE, null);
 		db.execSQL("DROP TABLE IF EXISTS person"); 
         Person person = new Person();  
@@ -78,19 +92,20 @@ public class SqliteActivity extends Activity {
 	} 
 	
     public void add(View view) {  
+    	Log.d(TAG, "SqliteActivity---add method called");
         ArrayList<Person> persons = new ArrayList<Person>();  
           
-        Person person1 = new Person("Ella", 22, "lively girl");  
+        Person person1 = new Person("Ella", 22, "lively boy");  
         Person person2 = new Person("Jenny", 22, "beautiful girl");  
-        Person person3 = new Person("Jessica", 23, "sexy girl");  
-        Person person4 = new Person("Kelly", 23, "hot baby");  
-        Person person5 = new Person("Jane", 25, "a pretty woman");  
+       // Person person3 = new Person("Jessica", 23, "sexy girl");  
+       // Person person4 = new Person("Kelly", 23, "hot baby");  
+       // Person person5 = new Person("Jane", 25, "a pretty woman");  
           
         persons.add(person1);  
         persons.add(person2);  
-        persons.add(person3);  
-        persons.add(person4);  
-        persons.add(person5);  
+       // persons.add(person3);  
+       // persons.add(person4);  
+       // persons.add(person5);  
           
         mgr.add(persons);  
     }  
