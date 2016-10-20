@@ -28,6 +28,11 @@
         android:layout_height="wrap_content"  
         android:text="@string/queryTheCursor"  
         android:onClick="queryTheCursor"/>  
+    <Button  
+        android:id="@+id/proivide_before_click_add"
+        android:layout_width="fill_parent"  
+        android:layout_height="wrap_content"  
+        android:text="@string/proivide_before_click_add"/> 
     <ListView  
         android:id="@+id/listView"  
         android:layout_width="fill_parent"  

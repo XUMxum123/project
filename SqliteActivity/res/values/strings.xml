@@ -9,5 +9,8 @@
     <string name="delete">delete</string>
     <string name="query">query</string>
     <string name="queryTheCursor">queryTheCursor</string>
+    <string name="proivide_before_click_add">点击之前先点击add按钮</string>
+    
+    <string name="person_query">personQuery</string>
 
 </resources>
